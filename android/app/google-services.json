@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713943990799",
+    "project_id": "screen-details-45932",
+    "storage_bucket": "screen-details-45932.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713943990799:android:38f3243cbf890a9fd3997a",
+        "android_client_info": {
+          "package_name": "com.screendetails"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-CznQAjG9ox_NbZbTp2MyKVs0NnlKQvE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

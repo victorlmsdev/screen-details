@@ -1,0 +1,5 @@
+{
+  "name": "ScreenDetails",
+  "displayName": "ScreenDetails",
+  "plugins": ["expo-localization", "expo-secure-store"]
+}
