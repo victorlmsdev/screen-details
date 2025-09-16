@@ -12,13 +12,13 @@ Ao usar o Serviço, você concorda com a coleta e o uso de informações de acor
 
 #### 2. Coleta e Uso de Informações
 
-O aplicativo **Screen Details** não solicita ou coleta informações pessoais identificáveis diretamente de você, como seu nome, endereço ou e-mail.
+O aplicativo **Screen Details** não solicita ou coleta informações pessoais identificáveis diretamente de você, como seu nome ou endereço de e-mail.
 
-No entanto, para permitir que você realize ações como avaliar filmes e marcar favoritos, o aplicativo utiliza um sistema de autenticação via API do The Movie Database (TMDB). Ao se autenticar, o TMDB nos fornece um token de sessão (`sessionID`) temporário e anônimo.
+No entanto, para permitir que você realize ações como avaliar filmes e marcar favoritos, o aplicativo utiliza um sistema de autenticação via API do The Movie Database (TMDB). Ao se autenticar, o TMDB nos fornece um token de sessão (`sessionID`). Este token, juntamente com dados públicos da sua conta no TMDB (como seu nome de usuário e foto de perfil), são utilizados para personalizar sua experiência no aplicativo, permitindo que você visualize seu próprio perfil e realize ações em seu nome.
 
-* **O que é coletado:** Um token de sessão (`sessionID`).
-* **Para que é usado:** O token é armazenado de forma segura no seu dispositivo e é usado exclusivamente para identificar sua sessão no TMDB, permitindo que o aplicativo execute ações em seu nome (como a avaliação de filmes) com a sua autorização.
-* **Como é coletado:** O token é obtido após sua autenticação e autorização em uma interface web fornecida pelo TMDB. Nós não temos acesso às suas credenciais de login (nome de usuário e senha).
+* **O que é coletado:** Um token de sessão (`sessionID`) e dados públicos do seu perfil no TMDB.
+* **Para que é usado:** O token é armazenado de forma segura no seu dispositivo e é usado exclusivamente para identificar sua sessão no TMDB. Os dados públicos são usados para exibir seu perfil no aplicativo.
+* **Como é coletado:** O token e os dados públicos são obtidos após sua autenticação e autorização em uma interface web fornecida pelo TMDB. Nós não temos acesso às suas credenciais de login (senha).
 
 ---
 
@@ -33,24 +33,32 @@ Nós não temos controle sobre as políticas de privacidade desses serviços de 
 
 ---
 
-#### 4. Logs de Dados
+#### 4. Exclusão de Dados e Conta
+
+A exclusão dos seus dados é um processo direto. Para remover os dados de sua conta do seu dispositivo, basta **fazer logout** do aplicativo. O token de sessão (`sessionID`) será imediatamente removido, e o aplicativo não poderá mais realizar ações em sua conta do TMDB.
+
+Para excluir permanentemente a sua conta e todos os dados associados a ela, você deve fazê-lo diretamente através do site oficial do TMDB. Você pode encontrar as instruções e o link para exclusão de conta nesta página: [https://www.themoviedb.org/settings/account](https://www.themoviedb.org/settings/account).
+
+---
+
+#### 5. Logs de Dados
 
 No caso de um erro no aplicativo, podemos coletar dados e informações (por meio de produtos de terceiros) em seu dispositivo, chamados de Log de Dados. Esses dados podem incluir informações como o endereço de IP, nome do dispositivo, versão do sistema operacional, a configuração do aplicativo ao usar o Serviço, a hora e a data de uso, e outras estatísticas. Essas informações são usadas unicamente para diagnosticar e corrigir problemas.
 
 ---
 
-#### 5. Privacidade de Crianças
+#### 6. Privacidade de Crianças
 
 Nosso Serviço não se destina a pessoas com menos de 13 anos. Não coletamos intencionalmente informações de identificação pessoal de crianças menores de 13 anos. Se você for um pai ou responsável e tiver conhecimento de que seu filho nos forneceu informações pessoais, por favor, entre em contato.
 
 ---
 
-#### 6. Alterações nesta Política de Privacidade
+#### 7. Alterações nesta Política de Privacidade
 
 Podemos atualizar nossa Política de Privacidade de tempos em tempos. É aconselhável que você revise esta página periodicamente para quaisquer alterações. As alterações nesta Política de Privacidade entram em vigor quando são publicadas nesta página.
 
 ---
 
-#### 7. Contato
+#### 8. Contato
 
-Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato: [victorlms.dev@gmail.com].
+Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco em [SEU EMAIL DE CONTATO].
