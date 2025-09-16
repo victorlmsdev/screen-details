@@ -61,4 +61,4 @@ Podemos atualizar nossa Política de Privacidade de tempos em tempos. É aconsel
 
 #### 8. Contato
 
-Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco em [SEU EMAIL DE CONTATO].
+Se você tiver alguma dúvida sobre esta Política de Privacidade, entre em contato conosco em [victorlms.dev@gmail.com].
