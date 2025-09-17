@@ -1,4 +1,4 @@
-import { Image, ImageProps } from "expo-image";
+import { Image, ImageErrorEventData, ImageProps } from "expo-image";
 import SkeletonComponent from "../Skeleton";
 import { useMemo, useState } from "react";
 import { UndefinedCover, UndefinedProfile } from "~/shared/assets";
@@ -17,6 +17,11 @@ const SkeletonImage = function ({ imageType = "card", ...props }: Props) {
     return UndefinedProfile;
   }, [imageType]);
 
+  const handleError = (event: ImageErrorEventData) => {
+    if (typeof props.onError === "function") return props.onError(event);
+    setError(true);
+  };
+
   return (
     <SkeletonComponent show={!loaded}>
       <Image
@@ -24,7 +29,7 @@ const SkeletonImage = function ({ imageType = "card", ...props }: Props) {
         source={error ? errorImage : props.source}
         onLoadEnd={() => setLoaded(true)}
         onLoadStart={() => setLoaded(false)}
-        onError={() => setError(true)}
+        onError={handleError}
       />
     </SkeletonComponent>
   );

@@ -2,7 +2,7 @@ import { Box } from "~/shared/components/";
 
 import { BASE_IMAGE_URL } from "@env";
 import Icon from "@expo/vector-icons/MaterialIcons";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useColorScheme } from "react-native";
 import {
   FadeInLeft,
@@ -13,6 +13,8 @@ import {
 import { SkeletonImage } from "~/shared/components";
 
 const Avatar = function ({ imageUrl }: { imageUrl?: string }) {
+  const [imageError, setImageError] = useState(false);
+
   const colorScheme = useColorScheme();
 
   const tmdbImageUrl = useMemo(
@@ -20,13 +22,16 @@ const Avatar = function ({ imageUrl }: { imageUrl?: string }) {
     [imageUrl],
   );
 
+  const handleImageError = () => setImageError(true);
+
   return (
     <Box style={{ overflow: "hidden" }}>
-      {imageUrl ? (
+      {!imageError && imageUrl ? (
         <Box key={"avatar-img"} entering={FadeInRight} exiting={FadeOutRight}>
           <SkeletonImage
             source={{ uri: tmdbImageUrl }}
             style={{ width: 128, height: 128 }}
+            onError={handleImageError}
           />
         </Box>
       ) : (
