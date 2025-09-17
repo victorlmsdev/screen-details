@@ -17,7 +17,8 @@
       "~/*": ["./src/*"],
       "@components/*": ["./src/shared/components*"],
       "@shared/*": ["./src/shared/*"]
-    }
+    },
+    "typeRoots": ["./src/config/types"]
   },
   "exclude": [
     "node_modules",

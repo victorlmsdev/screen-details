@@ -9,7 +9,7 @@ const useFetchTrending = () => {
   return useQuery({
     queryKey: [queryId, userLocale.languageTag],
     queryFn: async () => {
-      const url = "trending/movie/week";
+      const url = "/trending/movie/week";
 
       const page = 1;
       const { data } = await api.get<MovieResponse>(

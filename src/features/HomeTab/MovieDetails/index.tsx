@@ -136,7 +136,7 @@ const MovieDetails: React.FC = function () {
         </Text>
         <BackDropImage
           imageType="backdrop"
-          source={`${BASE_IMAGE_URL}w500/${movie.backdrop_path}`}
+          source={`${BASE_IMAGE_URL}/w500/${movie.backdrop_path}`}
           contentFit="contain"
           transition={150}
         />

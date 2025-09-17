@@ -120,6 +120,9 @@ const Home: FC = function () {
     );
   }
 
+  console.log(
+    `aQUI =============== ${BASE_IMAGE_URL}/w500/${pageData.recommendationData?.backdrop_path}`,
+  );
   return (
     <Container>
       <SubtitleContainer>
@@ -137,7 +140,7 @@ const Home: FC = function () {
             style={{ width: "100%" }}>
             <RecommendationImage
               imageType="backdrop"
-              source={`${BASE_IMAGE_URL}w500/${pageData.recommendationData?.backdrop_path}`}
+              source={`${BASE_IMAGE_URL}/w500/${pageData.recommendationData?.backdrop_path}`}
               contentFit="contain"
             />
             <Text

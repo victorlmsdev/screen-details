@@ -10,7 +10,7 @@ const useFetchNowTheaters = () => {
   return useQuery({
     queryKey: [queryId, userLocale.languageTag],
     queryFn: async () => {
-      const url = "movie/now_playing";
+      const url = "/movie/now_playing";
 
       const page = 1;
 

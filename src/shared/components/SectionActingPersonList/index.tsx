@@ -43,7 +43,7 @@ const SectionActingPersonList: FC<Props> = function ({
             return (
               <CardContainer onPress={onPress(item.id)}>
                 <CardImage
-                  source={`${BASE_IMAGE_URL}w92/` + item.profile_path}
+                  source={`${BASE_IMAGE_URL}/w92/` + item.profile_path}
                   contentFit="contain"
                   placeholder={blurhash}
                   transition={250}

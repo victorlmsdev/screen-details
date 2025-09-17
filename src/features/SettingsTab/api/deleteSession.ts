@@ -1,4 +1,3 @@
-import { BASE_URL, API_KEY } from "@env";
 import api from "~/shared/api";
 
 type DeleteSessionResponse = {
@@ -6,7 +5,7 @@ type DeleteSessionResponse = {
 };
 
 const deleteSession = async (sessionId: string) => {
-  const response = await api.delete(`${BASE_URL}/authentication/session/`, {
+  const response = await api.delete(`/authentication/session/`, {
     data: { session_id: sessionId },
   });
 

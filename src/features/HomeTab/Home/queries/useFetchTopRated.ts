@@ -9,7 +9,7 @@ const useFetchTopRated = () => {
   return useQuery({
     queryKey: [queryId, userLocale.languageTag],
     queryFn: async () => {
-      const url = "movie/top_rated";
+      const url = "/movie/top_rated";
       const page = 1;
 
       const { data } = await api.get<MovieResponse>(

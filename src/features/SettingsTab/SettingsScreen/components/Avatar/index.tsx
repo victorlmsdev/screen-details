@@ -11,7 +11,7 @@ const Avatar = function ({ imageUrl }: { imageUrl?: string }) {
   const colorScheme = useColorScheme();
 
   const tmdbImageUrl = useMemo(
-    () => `${BASE_IMAGE_URL}w300_and_h300_face${imageUrl}`,
+    () => `${BASE_IMAGE_URL}/w300_and_h300_face${imageUrl}`,
     [imageUrl],
   );
 

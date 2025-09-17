@@ -1,4 +1,3 @@
-import firebaseRemoteConfig from "@react-native-firebase/remote-config";
 import { useQuery } from "@tanstack/react-query";
 import api from "~/shared/api";
 import { FirebaseService } from "~/shared/services/firebase";
@@ -22,12 +21,12 @@ const useFetchRecommendation = () => {
       ? remoteRecommendation
       : JSON.stringify(movieId),
   );
-
+  console.log("fetchId => ", fetchId);
   return useQuery({
     queryKey: [queryId, fetchId.id, userLocale.languageTag],
     queryFn: async () => {
-      const url = `movie/${fetchId.id}`;
-
+      const url = `/movie/${fetchId.id}`;
+      console.log("url => ", url);
       const { data } = await api.get<MovieDetails>(
         `${url}?language=${userLocale.languageTag}`,
       );

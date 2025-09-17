@@ -11,14 +11,19 @@ const api = axios.create({
 
 api.interceptors.request.use(options => {
   options.headers.Authorization = `Bearer ${API_READ_ACCESS_TOKEN}`;
-  if (__DEV__) console.log(options.url);
+  if (__DEV__) console.log(`${BASE_URL}${options.url}`);
   return options;
 });
 
 api.interceptors.response.use(
-  response => response,
+  response => {
+    if (__DEV__) console.log(response.config.url, response.data);
+
+    return response;
+  },
   error => {
     if (__DEV__) console.log(error.response.data);
+    return error;
   },
 );
 

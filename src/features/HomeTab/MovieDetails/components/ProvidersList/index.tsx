@@ -63,7 +63,7 @@ const ProvidersList: FC = function () {
             return (
               <CardContainer>
                 <CardImage
-                  source={`${BASE_IMAGE_URL}w500/${item?.logo_path}`}
+                  source={`${BASE_IMAGE_URL}/w500/${item?.logo_path}`}
                   placeholder={item?.provider_name}
                   contentFit="contain"
                   transition={350}

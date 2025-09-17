@@ -1,4 +1,3 @@
-import { BASE_URL } from "@env";
 import api from "~/shared/api";
 
 type RequestTokenResponse = {
@@ -8,7 +7,7 @@ type RequestTokenResponse = {
 };
 
 const createRequestToken = async () => {
-  const response = await api.get(`${BASE_URL}/authentication/token/new`);
+  const response = await api.get(`/authentication/token/new`);
 
   const data = response.data as RequestTokenResponse;
 

@@ -46,7 +46,7 @@ const SectionMovieList: FC<Props> = function ({
             return (
               <Card onPress={onSelectMovie(item.id)}>
                 <CardImage
-                  source={`${BASE_IMAGE_URL}w92/` + item.poster_path}
+                  source={`${BASE_IMAGE_URL}/w92/` + item.poster_path}
                   contentFit="contain"
                   transition={1000}
                 />
