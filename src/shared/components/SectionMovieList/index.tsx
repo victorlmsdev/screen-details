@@ -1,17 +1,14 @@
-import React, { FC, Fragment } from "react";
-import Text from "../Text";
-import { FlatList, FlatListProps, View } from "react-native";
-import { Card, CardImage, SubtitleContainer } from "./styles";
-import Separator from "../Separator";
-import ListFooterComponent from "../ListFooterComponent";
 import { BASE_IMAGE_URL } from "@env";
-import Loader from "../Loader";
-import SkeletonComponent from "../Skeleton";
+import React, { FC } from "react";
+import { FlatList, FlatListProps } from "react-native";
+import { FadeInLeft } from "react-native-reanimated";
 import { UndefinedProfile } from "~/shared/assets";
-
-// const blurhash = "LEHV6nWB2yk8pyo0adR*.7kCMdnj";
-const blurhash =
-  "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
+import Box from "../Box";
+import ListFooterComponent from "../ListFooterComponent";
+import Separator from "../Separator";
+import SkeletonComponent from "../Skeleton";
+import Text from "../Text";
+import { Card, CardImage, SubtitleContainer } from "./styles";
 
 type Props = {
   data?: MovieCard[];
@@ -29,7 +26,7 @@ const SectionMovieList: FC<Props> = function ({
   flatListProps,
 }) {
   return (
-    <Fragment>
+    <Box entering={FadeInLeft} key={`section-movie-list:${title}`}>
       <SubtitleContainer>
         <Text variant="subtitle">{title}</Text>
         <Separator variant="regular" />
@@ -49,6 +46,7 @@ const SectionMovieList: FC<Props> = function ({
                   source={`${BASE_IMAGE_URL}/w92/` + item.poster_path}
                   contentFit="contain"
                   transition={1000}
+                  placeholder={UndefinedProfile}
                 />
                 <Text variant="sectionTitle" numberOfLines={2}>
                   {item.title}
@@ -59,7 +57,7 @@ const SectionMovieList: FC<Props> = function ({
           ListFooterComponent={() => <ListFooterComponent />}
         />
       </SkeletonComponent>
-    </Fragment>
+    </Box>
   );
 };
 

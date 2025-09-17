@@ -1,7 +1,8 @@
 import styled from "styled-components/native";
+import Animated, { AnimatedProps } from "react-native-reanimated";
 import { ViewProps } from "react-native";
 
-export type BoxProps = ViewProps & {
+export type BoxProps = AnimatedProps<ViewProps> & {
   width?: number | string;
   height?: number | string;
   flexDirection?: string;
@@ -12,7 +13,7 @@ export type BoxProps = ViewProps & {
   flex?: number;
 };
 
-export const View = styled.View<BoxProps>`
+export const View = styled(Animated.View)<BoxProps>`
   ${({ flex }) => flex && `flex: ${flex};`}
   width: ${({ width }) =>
     !width ? "" : typeof width === "string" ? width : `${width}px`};

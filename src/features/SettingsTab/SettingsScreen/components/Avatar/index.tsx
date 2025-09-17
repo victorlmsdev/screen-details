@@ -1,10 +1,15 @@
-import { View } from "~/shared/components/Box/styles";
+import { Box } from "~/shared/components/";
 
-import Icon from "@expo/vector-icons/MaterialIcons";
-import { useColorScheme } from "react-native";
-import { Image } from "expo-image";
 import { BASE_IMAGE_URL } from "@env";
+import Icon from "@expo/vector-icons/MaterialIcons";
 import { useMemo } from "react";
+import { useColorScheme } from "react-native";
+import {
+  FadeInLeft,
+  FadeInRight,
+  FadeOutLeft,
+  FadeOutRight,
+} from "react-native-reanimated";
 import { SkeletonImage } from "~/shared/components";
 
 const Avatar = function ({ imageUrl }: { imageUrl?: string }) {
@@ -16,20 +21,24 @@ const Avatar = function ({ imageUrl }: { imageUrl?: string }) {
   );
 
   return (
-    <View>
+    <Box style={{ overflow: "hidden" }}>
       {imageUrl ? (
-        <SkeletonImage
-          source={{ uri: tmdbImageUrl }}
-          style={{ width: 128, height: 128 }}
-        />
+        <Box key={"avatar-img"} entering={FadeInRight} exiting={FadeOutRight}>
+          <SkeletonImage
+            source={{ uri: tmdbImageUrl }}
+            style={{ width: 128, height: 128 }}
+          />
+        </Box>
       ) : (
-        <Icon
-          name="person"
-          size={128}
-          color={colorScheme === "dark" ? "#fff" : "#000"}
-        />
+        <Box key={"avatar-icon"} entering={FadeInLeft} exiting={FadeOutLeft}>
+          <Icon
+            name="person"
+            size={128}
+            color={colorScheme === "dark" ? "#fff" : "#000"}
+          />
+        </Box>
       )}
-    </View>
+    </Box>
   );
 };
 

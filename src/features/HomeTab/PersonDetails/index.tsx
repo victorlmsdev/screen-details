@@ -21,6 +21,7 @@ import useFetchPersonCredits from "./queries/useFetchPersonCredits";
 import useFetchPersonDetails from "./queries/useFetchPersonDetails";
 import { Container, ProfileImage } from "./styles";
 import useTranslation from "~/shared/hooks/useTranslate";
+import { FadeInLeft } from "react-native-reanimated";
 
 const PersonDetails: FC = function () {
   const navigation = useNavigation<NavigationProp<StackParamsList>>();
@@ -41,7 +42,7 @@ const PersonDetails: FC = function () {
 
   useEffect(() => {
     if (person?.profile_path) {
-      const auxSource = `${BASE_IMAGE_URL}original/${person?.profile_path}`;
+      const auxSource = `${BASE_IMAGE_URL}/original/${person?.profile_path}`;
       setProfileSource(auxSource);
     }
   }, [person]);
@@ -102,14 +103,14 @@ const PersonDetails: FC = function () {
         <Separator variant="bold" />
         <Text variant="megaTitle">{person?.name}</Text>
         <Row>
-          <Column width={"50%"}>
+          <Column width={"50%"} entering={FadeInLeft}>
             <ProfileImage
               source={profileSource}
               contentFit="contain"
               transition={150}
             />
           </Column>
-          <Column width={"50%"}>
+          <Column width={"50%"} entering={FadeInLeft}>
             {renderPersonInfo(
               translation.gender,
               Gender[person.gender as keyof typeof Gender],

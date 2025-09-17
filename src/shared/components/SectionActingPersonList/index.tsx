@@ -1,11 +1,14 @@
 import { BASE_IMAGE_URL } from "@env";
-import React, { FC, Fragment } from "react";
+import React, { FC } from "react";
 import { FlatList, FlatListProps } from "react-native";
+import { FadeInLeft } from "react-native-reanimated";
+import Box from "../Box";
 import ListFooterComponent from "../ListFooterComponent";
 import Separator from "../Separator";
 import SkeletonComponent from "../Skeleton";
 import Text from "../Text";
 import { CardContainer, CardImage, SubtitleContainer } from "./styles";
+import { UndefinedProfile } from "~/shared/assets";
 
 type Props = {
   data?: ActingPerson[];
@@ -15,9 +18,6 @@ type Props = {
   flatListProps?: Omit<FlatListProps<ActingPerson>, "data" | "renderItem">;
 };
 
-const blurhash =
-  "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
-
 const SectionActingPersonList: FC<Props> = function ({
   data,
   title,
@@ -26,7 +26,7 @@ const SectionActingPersonList: FC<Props> = function ({
   flatListProps,
 }) {
   return (
-    <Fragment>
+    <Box entering={FadeInLeft} key={`section-person-list:${title}`}>
       <SubtitleContainer>
         <Text variant="subtitle">{title}</Text>
         <Separator variant="regular" />
@@ -45,7 +45,7 @@ const SectionActingPersonList: FC<Props> = function ({
                 <CardImage
                   source={`${BASE_IMAGE_URL}/w92/` + item.profile_path}
                   contentFit="contain"
-                  placeholder={blurhash}
+                  placeholder={UndefinedProfile}
                   transition={250}
                 />
                 <Text variant="sectionTitle" numberOfLines={1}>
@@ -60,7 +60,7 @@ const SectionActingPersonList: FC<Props> = function ({
           ListFooterComponent={() => <ListFooterComponent />}
         />
       </SkeletonComponent>
-    </Fragment>
+    </Box>
   );
 };
 

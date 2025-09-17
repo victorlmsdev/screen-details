@@ -1,7 +1,12 @@
 import { Fragment, useCallback, useState } from "react";
+import {
+  FadeInDown,
+  FadeInLeft,
+  FadeOutLeft,
+  FadeOutRight,
+} from "react-native-reanimated";
 import useGetSession from "~/features/SettingsTab/hooks/useGetSession";
-import { Button, Text } from "~/shared/components";
-import { View } from "~/shared/components/Box/styles";
+import { Box, Button, Text } from "~/shared/components";
 import useTranslation from "~/shared/hooks/useTranslate";
 import useUserStore from "~/shared/stores/useUserStore";
 import Avatar from "../Avatar";
@@ -22,20 +27,29 @@ const ProfileSection = function () {
     "shared",
   ) as Translation["shared"];
 
-  const closeSignoutModal = useCallback(() => setOpenSignoutModal(false), []);
+  const toggleModal = useCallback(() => setOpenSignoutModal(prev => !prev), []);
 
   return (
-    <View flexDirection={user ? "row" : "column"} alignItems="center">
+    <Box
+      flexDirection={user ? "row" : "column"}
+      alignItems="center"
+      width={"100%"}>
       <Avatar imageUrl={user?.avatar?.tmdb?.avatar_path ?? undefined} />
       {!user && (
-        <Button onPress={() => mutate()} disabled={isPending}>
-          {isPending
-            ? sharedTranslations.loading
-            : translations.signInButtonLabel}
-        </Button>
+        <Box entering={FadeInDown} exiting={FadeOutLeft}>
+          <Button onPress={() => mutate()} disabled={isPending}>
+            {isPending
+              ? sharedTranslations.loading
+              : translations.signInButtonLabel}
+          </Button>
+        </Box>
       )}
       {user && (
-        <View flexDirection="column" margin={8}>
+        <Box
+          flexDirection="column"
+          margin={8}
+          entering={FadeInLeft}
+          exiting={FadeOutRight}>
           <Text variant="caption">{translations.tmdbUser}</Text>
           <Text variant="title">{user?.username}</Text>
           {user?.name && (
@@ -44,16 +58,13 @@ const ProfileSection = function () {
               <Text variant="title">{user?.name}</Text>
             </Fragment>
           )}
-          <Text
-            variant="body"
-            color="link"
-            onPress={() => setOpenSignoutModal(true)}>
+          <Text variant="body" color="link" onPress={toggleModal}>
             {translations.signOutCTA}
           </Text>
-        </View>
+        </Box>
       )}
-      <SignoutModal visible={openSignoutModal} onClose={closeSignoutModal} />
-    </View>
+      <SignoutModal visible={openSignoutModal} onClose={toggleModal} />
+    </Box>
   );
 };
 
